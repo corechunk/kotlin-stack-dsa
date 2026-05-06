@@ -5,7 +5,15 @@ class stack(var top:Int = -1,var bottom:Int = 0){
 	}
 	fun clear(){
 		//print("\u001b[H\u001b[2J")
-		ProcessBuilder("powershell", "-Command", "Clear-Host").inheritIO().start().waitFor()
+		//ProcessBuilder("powershell", "-Command", "Clear-Host").inheritIO().start().waitFor()
+		val os = System.getProperty("os.name").lowercase()
+		if (os.contains("win")) {
+		    // Works for both CMD and PowerShell
+		    ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor()
+		} else {
+		    // Works for Linux and macOS
+		    ProcessBuilder("clear").inheritIO().start().waitFor()
+		}
 	}
 	fun create(size:Int){
 		storage = Array(size){""}
