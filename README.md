@@ -27,7 +27,7 @@ Once running, use these options:
 
 ## How to Build
 ```powershell
-./gradlew build
+gradle build
 ```
 
 ## Compiling Notes
