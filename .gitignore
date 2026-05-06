@@ -1,6 +1,9 @@
 # Gradle
 .gradle/
-build/
+
+# Ignore everything in build/ but keep build/libs/
+build/*
+!build/libs/
 
 # Kotlin
 .kotlin/
